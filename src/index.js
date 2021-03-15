@@ -1,16 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
 import reportWebVitals from './reportWebVitals';
-import NavBar from './Components/NavBar';
-import ItemListContainer from './Components/ItemListContainer';
-
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <NavBar />
-    <ItemListContainer greeting = "Esto es un titulo!" />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
