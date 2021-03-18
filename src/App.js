@@ -1,12 +1,27 @@
 import './App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './Components/NavBar';
 import ItemListContainer from './Components/ItemListContainer';
+import mockdb from "./mockdb.json";
 
-const App = () => (
-    <div className= "App">
+function App() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(mockdb);
+      }, 1000);
+    }).then((resultado) => setItems(resultado));
+  });
+
+  return (
+    <div className="App">
       <NavBar />
-      <ItemListContainer greeting = {'Esto es un titulo!'} />
+      <ItemListContainer items={items} greeting="There are no items yet" />
     </div>
   );
+}
 export default App;
+
+
